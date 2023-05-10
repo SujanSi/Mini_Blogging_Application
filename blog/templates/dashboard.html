@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- MAIN (Center website) -->
+<div class="main">
+<hr>
+<!-- Portfolio Gallery Grid -->
+<a href="{% url 'addpost' %}" class="button-link" type="submit">ADD POST</a>
+<div class="row">
+
+  {% for i in post %}
+  <div class="column">
+
+      <div class="content">
+
+          {% if i.image %}
+          <img src="{{ i.image.url }}" alt="person" style="width:100%">
+          {% endif %}
+          <h3>{{i.title}}<br>{{i.author}}</h3>
+          <p class="post-content">{{i.content}}</p>
+
+          <a href="{% url 'edit_view' i.id %}" class="button-link">EDIT</a>
+          <a href="{% url 'delete_view' i.id %}" class="button-link">DELETE</a>
+      </div>
+  </div>
+  {% endfor %}
+</div>
+<!-- END GRID -->
+</div>
+{% endblock content%}

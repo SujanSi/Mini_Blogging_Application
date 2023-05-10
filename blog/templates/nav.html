@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>NAV</title>
+    {% load static %}
+</head>
+
+<body>
+<h1 style="margin-left:600px;">MINI BLOG</h1>
+<ul>
+  <li><a href="{% url 'index' %}">Home</a></li>
+  <li><a href="{% url 'contact' %}">Contact Us</a></li>
+  <li><a href="{% url 'about' %}">About Us</a></li>
+  {% if request.user.is_authenticated %}
+  <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+  <li><a href="{% url 'logout' %}">Log Out</a></li>
+  {% else %}
+  <li><a href="{% url 'signup' %}">Sign Up</a></li>
+  <li><a href="{% url 'login' %}">Log In</a></li>
+</ul>
+{% endif %}
+</body>
+</html>

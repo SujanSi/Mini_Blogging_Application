@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block messages %}
+<ul class="messages error-list">
+{% for message in messages %}
+{{ message }}
+
+{% endfor %}
+</ul>
+{% endblock %}
+
+{% block content %}
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Send</button>
+</form>
+{% endblock %}

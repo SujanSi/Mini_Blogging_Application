@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<!-- MAIN (Center website) -->
+<div class="main">
+
+<hr>
+
+{% for i in post %}
+<!-- Portfolio Gallery Grid -->
+<div class="row">
+  <div class="column">
+    <div class="content">
+      {% if i.image %}
+          <img src="{{ i.image.url }}" alt="person" style="width:100%">
+          {% endif %}
+      <h3>{{i.title}}</h3>
+      <p>{{i.content}}</p>
+    </div>
+    
+  </div>
+<!-- END GRID -->
+</div>
+{% endfor %}
+
+
+
+
+{% endblock content%}
